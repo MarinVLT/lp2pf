@@ -5,12 +5,24 @@ public class Produto {
     private String nomeProduto;
     private String descricao;
     private double valor;
+    private String status;
+    //private int qntProd = 0;
     
+    Produto(){
+        this.id = -1;
+        this.nomeProduto = "";
+        this.descricao = "";
+        this.valor = 0;
+        this.status = "INATIVO";
+    }
+    
+
     Produto(int id, String nomeProduto, String descricao, double valor){
         this.id = id;
         this.nomeProduto = nomeProduto;
         this.descricao = descricao;
         this.valor = valor;
+        this.status = "ATIVO";
     }
     
     public int getId() {
@@ -37,5 +49,12 @@ public class Produto {
     public void setValor(double valor) {
         this.valor = valor;
     }
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+   
 
 }
