@@ -1,10 +1,15 @@
 package br.model;
 
-class Login extends Usuario{
+public class Login extends Usuario{
     private String user;
     private String senha;
 
-    Login(String user, String senha){
+    public Login(){
+        this.user = "";
+        this.senha = "";
+    }
+    
+    public Login(String user, String senha){
         this.user = user;
         this.senha = senha;
     }

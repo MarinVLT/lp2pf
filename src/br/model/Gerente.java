@@ -1,8 +1,7 @@
 package br.model;
 
-import java.util.ArrayList;
-
-//import br.model.Produto;
+//import java.util.ArrayList;
+import java.util.LinkedList;
 
 //import java.util.Scanner;
 
@@ -11,9 +10,30 @@ import java.util.ArrayList;
 public class Gerente extends Usuario {
 
     private int qntProd = 0;
-    //private Produto listaProduto[];
-    ArrayList<Produto> listaProduto = new ArrayList<>();
+    //ArrayList<Produto> listaProduto;
+    LinkedList<Produto> listaProduto;
 
+
+    public Gerente(){
+        this.nome = "";
+        this.numeroCel = "";
+        this.funcao = "GERENTE";
+        listaProduto  = new LinkedList<>();
+    }
+
+    public Gerente(String nome, String numero){
+        this.nome = nome;
+        this.numeroCel = numero;
+        this.funcao = "GERENTE";
+        listaProduto = new LinkedList<>();
+    }
+
+    public Gerente(String nome, String numero, LinkedList<Produto> lista){
+        this.nome = nome;
+        this.numeroCel = numero;
+        this.funcao = "GERENTE";
+        listaProduto = lista;
+    }
 
 
     public void cadastraProduto(Produto p){
@@ -35,51 +55,41 @@ public class Gerente extends Usuario {
                 p.setStatus("INATIVO");
             }
         }
+        qntProd--;
     }
 
     public void listaProdutosAtivos(){
-        for(Produto p : listaProduto){
-            if(p.getStatus() == "ATIVO"){
-                System.out.println("Nome do Produto: " + p.getNomeProduto());             
-                System.out.println("Descrição do Produto: " + p.getDescricao());
-                System.out.println("Valor do Produto: " + p.getValor());
+        if(qntProd > 0){
+            for(Produto p : listaProduto){
+                if(p.getStatus() == "ATIVO"){
+                    System.out.println("Nome do Produto: " + p.getNomeProduto());             
+                    System.out.println("Descrição do Produto: " + p.getDescricao());
+                    System.out.println("Valor do Produto: " + p.getValor());
+                    System.out.println("----------------------------------");
+                }
             }
+        }else{
+            System.out.println("Cardapio vazio.");
         }
+        
     }
 
 
-    //private String nome  = "ADM";
-    //private int senha = 1234;
-    //private Scanner ler = new Scanner(System.in);
-
-    //private String loguin;
-    //private int senhagerente;
-
-    /*
-
-    public int getSenha() {
-        return senha;
+    public LinkedList<Produto> getListaProduto() {
+        return listaProduto;
     }
-     
-    public boolean validar(){
-        System.out.println("Login:");
-        login = ler.nextLine();
 
-        System.out.println("Digite sua senha: ");
-       
-        senhagerente= Integer.parseInt(ler.nextLine());
-        if ( (senha == senhagerente) && loguin.equals(nome)){
-            System.out.println("validado");
-            return true;
-
-        }  
-        else{
-            System.out.println("eroo");
-            return false;
-        } 
+    public void setListaProduto(LinkedList<Produto> listaProduto) {
+        this.listaProduto = listaProduto;
     }
-    
-     */
-           
 
+    public int getQntProd() {
+        return qntProd;
+    }
+
+    public void setQntProd(int qntProd) {
+        this.qntProd = qntProd;
+    }
+
+        
 }

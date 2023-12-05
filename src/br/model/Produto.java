@@ -8,7 +8,7 @@ public class Produto {
     private String status;
     //private int qntProd = 0;
     
-    Produto(){
+    public Produto(){
         this.id = -1;
         this.nomeProduto = "";
         this.descricao = "";
@@ -17,12 +17,19 @@ public class Produto {
     }
     
 
-    Produto(int id, String nomeProduto, String descricao, double valor){
+    public Produto(int id, String nomeProduto, String descricao, double valor){
         this.id = id;
         this.nomeProduto = nomeProduto;
         this.descricao = descricao;
         this.valor = valor;
         this.status = "ATIVO";
+    }
+
+    public void infoProduto(){
+        System.out.println("ID: " + this.id);    
+        System.out.println("Nome: " + this.nomeProduto);
+        System.out.println("Descrição: " + this.descricao);
+        System.out.println("Valor: " + this.valor);
     }
     
     public int getId() {
