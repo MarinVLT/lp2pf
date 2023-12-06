@@ -42,6 +42,7 @@ public class Cliente extends Usuario{
     public void finalizarCompra(String pagamento){
         StatusCompra = "FINALIZADA";
         MetodoDePagamento = pagamento;
+        carrinho.esvaziarCarrinho();
     }
 
     public String getStatusCompra() {

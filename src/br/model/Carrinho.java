@@ -86,6 +86,11 @@ public class Carrinho {
         
     }
 
+    public void esvaziarCarrinho(){
+        carrinho = new LinkedList<>();
+        qntProd = 0;
+    }
+
     public LinkedList<Produto> getCarrinho() {
         return carrinho;
     }

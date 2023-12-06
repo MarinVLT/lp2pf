@@ -43,6 +43,16 @@ public class CarrinhoTest {
         System.out.println("----------------------------------");
 
         c.listarProdutos();
+
+        c.esvaziarCarrinho();
+
+        System.out.println('\n');
+
+
+        System.out.println("Lista de produtos no carrinho depois de esvaziar o carrinho");
+        System.out.println("----------------------------------");
+
+        c.listarProdutos();
     
     }
     

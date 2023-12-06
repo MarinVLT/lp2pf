@@ -34,5 +34,12 @@ public class ClienteTest {
 
         car.listarProdutos();
 
+        c.finalizarCompra("CARTÃO");
+
+        System.out.println('\n');
+        System.out.println("Produtos no carrinho após finalizar a compra");
+        System.out.println("----------------------------------");
+        car.listarProdutos();
+
     }
 }
