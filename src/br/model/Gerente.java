@@ -15,13 +15,17 @@ public class Gerente extends Usuario {
 
 
     public Gerente(){
+        this.user = "";
+        this.senha = "";
         this.nome = "";
         this.numeroCel = "";
         this.funcao = "GERENTE";
         listaProduto  = new LinkedList<>();
     }
 
-    public Gerente(String nome, String numero){
+    public Gerente(String user, String senha, String nome, String numero){
+        this.user = user;
+        this.senha = senha;
         this.nome = nome;
         this.numeroCel = numero;
         this.funcao = "GERENTE";

@@ -11,20 +11,26 @@ public class Cliente extends Usuario{
     
 
     public Cliente(){
+        this.user = "";
+        this.senha = "";
         this.nome = "";
         this.numeroCel = "";
         this.funcao = "CLIENTE";
         this.carrinho  = new Carrinho();
     }
 
-    public Cliente(String nome, String numero){
+    public Cliente(String user, String senha, String nome, String numero){
+        this.user = user;
+        this.senha = senha;
         this.nome = nome;
         this.numeroCel = numero;
         this.funcao = "CLIENTE";
         this.carrinho = new Carrinho();
     }
 
-    public Cliente(String nome, String numero, Carrinho lista){
+    public Cliente(String user, String senha, String nome, String numero, Carrinho lista){
+        this.user = user;
+        this.senha = senha;
         this.nome = nome;
         this.numeroCel = numero;
         this.funcao = "CLIENTE";

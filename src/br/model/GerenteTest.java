@@ -1,8 +1,5 @@
 package br.model;
 
-import java.beans.PropertyEditor;
-
-
 public class GerenteTest {
     public static void main(String[] args) throws Exception {
         Gerente g = new Gerente();
