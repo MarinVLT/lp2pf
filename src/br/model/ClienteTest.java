@@ -3,7 +3,10 @@ package br.model;
 public class ClienteTest {
     public static void main(String[] args) throws Exception {
         Cliente c = new Cliente();
+        Cliente c2 = new Cliente();
+
         Carrinho car;
+        Carrinho car2;
 
         Produto p1 = new Produto(1, "P1", "BLA", 2.2);
         Produto p2 = new Produto(2, "P2", "BLA", 3.4);
@@ -18,6 +21,7 @@ public class ClienteTest {
         c.addProdutoNoCarrinho(p5);
 
         car = c.getCarrinho();
+        car2 = c2.getCarrinho();
 
         System.out.println("Produtos no carrinho");
         System.out.println("----------------------------------");
@@ -40,6 +44,14 @@ public class ClienteTest {
         System.out.println("Produtos no carrinho após finalizar a compra");
         System.out.println("----------------------------------");
         car.listarProdutos();
+
+        System.out.println("Carrinho do Cliente 2: ");
+        System.out.println("----------------------------------");
+        car2.listarProdutos();
+
+        c2.finalizarCompra("Cartão");
+
+
 
     }
 }

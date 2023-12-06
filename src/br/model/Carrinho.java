@@ -45,29 +45,6 @@ public class Carrinho {
         }
     }
 
-    /*
-     public void removerProduto(int id){
-        if(qntProd > 0){
-            if(buscarProduto(id) == true){
-                for(Produto item : carrinho){
-                    if(item.getId() == id){
-                        carrinho.remove(0);
-                        carrinho.remove(item);
-                    }
-                }
-                qntProd--;
-            }
-            else{
-                System.out.println("Produto não encontrado no carrinho");
-            }
-
-        }else{
-            System.out.println("Carrinho vazio.");
-        }
-        
-    }
-     */
-
      public void removerProduto(Produto p){
         carrinho.remove(p);
      }
@@ -77,7 +54,7 @@ public class Carrinho {
             for(Produto p : carrinho){
                 System.out.println("Nome do Produto: " + p.getNomeProduto());             
                 System.out.println("Descrição do Produto: " + p.getDescricao());
-                System.out.println("Valor do Produto: " + p.getValor());
+                System.out.printf("Valor do Produto = R$ %.2f\n", p.getValor());
                 System.out.println("----------------------------------");
             }
         }else{
@@ -89,6 +66,28 @@ public class Carrinho {
     public void esvaziarCarrinho(){
         carrinho = new LinkedList<>();
         qntProd = 0;
+    }
+
+
+    public double calcularTotalDaCompra(){
+        double total = 0;
+        
+        if(qntProd > 0){
+            for(Produto p : carrinho){
+                total = total + p.getValor();
+            }
+        }
+
+        return total;
+    }
+
+    public void gerarNotaFiscal(){
+
+        System.out.println("NOTA FISCAL");
+        System.out.println("----------------------------------");
+        listarProdutos();
+        System.out.printf("Total = R$ %.2f", calcularTotalDaCompra());
+
     }
 
     public LinkedList<Produto> getCarrinho() {

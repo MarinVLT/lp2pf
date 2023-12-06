@@ -44,6 +44,14 @@ public class CarrinhoTest {
 
         c.listarProdutos();
 
+        System.out.println('\n');
+
+
+        System.out.println("TESTE DE NOTA FISCAL");
+        System.out.println("----------------------------------");
+
+        c.gerarNotaFiscal();
+
         c.esvaziarCarrinho();
 
         System.out.println('\n');

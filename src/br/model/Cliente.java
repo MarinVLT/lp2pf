@@ -5,10 +5,8 @@ package br.model;
 public class Cliente extends Usuario{
     
     private String StatusCompra = "EM ANDAMENTO";
-    private String MetodoDePagamento;
     private Carrinho carrinho;
 
-    
 
     public Cliente(){
         this.user = "";
@@ -46,9 +44,16 @@ public class Cliente extends Usuario{
     }
 
     public void finalizarCompra(String pagamento){
-        StatusCompra = "FINALIZADA";
-        MetodoDePagamento = pagamento;
-        carrinho.esvaziarCarrinho();
+        if(carrinho.getQntProd() > 0){
+            StatusCompra = "FINALIZADA";
+
+            carrinho.gerarNotaFiscal();
+            System.out.println("\n----------------------------------");
+            System.out.println("Metodo de pagamento: " + pagamento);
+            carrinho.esvaziarCarrinho();
+        }
+            StatusCompra = "FINALIZADA";
+            System.out.println("Carrinho vazio, não há produtos para realizar a compra.");
     }
 
     public String getStatusCompra() {
@@ -59,13 +64,6 @@ public class Cliente extends Usuario{
         StatusCompra = statusCompra;
     }
     
-    public String getMetodoDePagamento() {
-        return MetodoDePagamento;
-    }
-
-    public void setMetodoDePagamento(String metodoDePagamento) {
-        MetodoDePagamento = metodoDePagamento;
-    }
 
     public Carrinho getCarrinho() {
         return carrinho;
